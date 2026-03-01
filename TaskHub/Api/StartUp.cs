@@ -1,3 +1,4 @@
+using Api.Middlewares;
 using Api.UseCases.Users;
 using Api.UseCases.Users.Interfaces;
 using Dal;
@@ -81,6 +82,9 @@ public sealed class Startup
 
         app.UseRouting();
 
+        app.UseMiddleware<StudentInfoMiddleware>();
+        app.UseMiddleware<ResponseTimeMiddleware>();
+        
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
