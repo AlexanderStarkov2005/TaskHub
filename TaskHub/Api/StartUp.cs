@@ -1,5 +1,4 @@
 using Api.Middlewares;
-using Api.Services.DisposedService;
 using Api.Services.LifeCyclesServices;
 using Api.UseCases.Users;
 using Api.UseCases.Users.Interfaces;

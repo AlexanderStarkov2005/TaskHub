@@ -1,6 +1,4 @@
-using Api.Services.Disposed;
-
-namespace Api.Services.DisposedService;
+namespace Api.Services.Disposed;
 
 public class DisposedService : IDisposable, IHasInstanceId
 {
