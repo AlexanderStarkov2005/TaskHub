@@ -1,4 +1,6 @@
 using Api.Middlewares;
+using Api.Services.DisposedService;
+using Api.Services.LifeCyclesServices;
 using Api.UseCases.Users;
 using Api.UseCases.Users.Interfaces;
 using Dal;
@@ -40,6 +42,13 @@ public sealed class Startup
         
         services.AddScoped<IManageUserUseCase, ManageUserUseCase>();
         
+        services.AddScoped<IScopedService1, ScopedService1>()
+            .AddScoped<IScopedService2, ScopedService2>()
+            .AddTransient<ITransientService1, TransientService1>()
+            .AddTransient<ITransientService2, TransientService2>()
+            .AddSingleton<ISingletonService1, SingletonService1>()
+            .AddSingleton<ISingletonService2, SingletonService2>();
+        
         services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
@@ -79,7 +88,6 @@ public sealed class Startup
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskHub API v1");
             });
         }
-
         app.UseRouting();
 
         app.UseMiddleware<StudentInfoMiddleware>();
