@@ -9,7 +9,6 @@ namespace Api.Controllers.Tasks;
 [ApiController]
 [Route("tasks")]
 [ResponseTimeHeader] 
-[StudentInfoHeaders] 
 public sealed class TasksController : ControllerBase
 {
     private readonly IManageTaskUseCase _taskUseCase;
